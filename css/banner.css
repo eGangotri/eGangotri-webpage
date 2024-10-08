@@ -1,0 +1,99 @@
+.slider-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	height: 600px;
+	width: 100%;
+}
+
+.slider-container h1 {
+	color: #fff;
+	font-size: 36px;
+	line-height:42px;
+	position: relative;
+	z-index: 2;
+	text-align: left;
+	width:1200px;
+	text-transform:uppercase;
+	margin-top:-50px;
+}
+
+.slider-container h1 strong {
+	font-size:72px;
+	display:block;
+	line-height:80px;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+
+.slider-container::after {
+	background-color: #000;
+	content: '';
+	position: absolute;
+	opacity: 0.3;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+}
+
+.slide {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	transform: scale(1.15);
+	transition: opacity .9s ease;
+}
+
+.slide.active {
+	animation: grow 10s linear forwards;
+	opacity: 1;
+}
+
+@keyframes grow {
+	0%, 20% {
+		transform: scale(1);
+	}
+	
+	75%, 100% {
+		transform: scale(1.15);
+	}
+}
+
+.controls-container {
+	position: absolute;
+	bottom: 50px;
+	left: 0px;
+	display: block;
+	flex-direction: column;
+	z-index: 2;
+	width:100%;
+	text-align:center;
+}
+
+.control {
+	background-color: #fff;
+	cursor: pointer;
+	opacity: 0.5;
+	margin: 6px;
+	height: 5px;
+	width: 50px;
+	transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
+	display:inline-block;
+}
+
+.control.active, .control:hover {
+	background-color: #fff;
+	opacity: 1;
+	transform: scale(1.2);
+}
